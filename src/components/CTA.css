@@ -1,0 +1,68 @@
+.cta {
+  padding: 100px 0;
+  background: linear-gradient(135deg, var(--primary-red) 0%, #8B0000 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before,
+.cta::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cta::before {
+  top: -200px;
+  right: -200px;
+}
+
+.cta::after {
+  bottom: -200px;
+  left: -200px;
+}
+
+.cta-content {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.cta-content h2 {
+  font-size: clamp(32px, 6vw, 56px);
+  color: white;
+  font-weight: 900;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.cta-content p {
+  font-size: clamp(16px, 3vw, 20px);
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.cta-btn {
+  padding: 16px 50px;
+  background: white;
+  color: var(--primary-red);
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+}

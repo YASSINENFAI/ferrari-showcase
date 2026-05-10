@@ -1,0 +1,28 @@
+{
+  "name": "ferrari-showcase-pro",
+  "version": "1.0.0",
+  "description": "Professional Ferrari Showcase with React, Framer Motion & GSAP",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "echo 'No linter configured'"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "framer-motion": "^10.16.4",
+    "gsap": "^3.12.2",
+    "react-scroll": "^1.8.10"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.3",
+    "vite": "^4.4.9"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
