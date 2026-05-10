@@ -6,7 +6,6 @@ import './CarsGallery.css'
 export default function CarsGallery() {
   const [activeIndex, setActiveIndex] = useState(0)
   const sectionRef = useRef(null)
-  const sliderRef = useRef(null)
 
   const cars = [
     {
@@ -164,7 +163,14 @@ export default function CarsGallery() {
               transition={{ duration: 0.6, ease: 'circOut' }}
             >
               <div className="car-image-container">
-                <img src={cars[activeIndex].image} alt={cars[activeIndex].name} className="main-car-img" />
+                <img 
+                  src={cars[activeIndex].image} 
+                  alt={cars[activeIndex].name} 
+                  className="main-car-img"
+                  onError={(e) => {
+                    e.target.src = 'https://via.placeholder.com/1200x800?text=Ferrari+Luxury';
+                  }}
+                />
               </div>
               
               <div className="car-details">
@@ -207,7 +213,13 @@ export default function CarsGallery() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <img src={car.image} alt={car.name} />
+              <img 
+                src={car.image} 
+                alt={car.name} 
+                onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/100x60?text=Ferrari';
+                }}
+              />
               <span className="thumb-name">{car.name}</span>
             </motion.div>
           ))}
