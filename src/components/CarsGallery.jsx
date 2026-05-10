@@ -9,33 +9,19 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function CarsGallery() {
   const sectionRef = useRef(null)
-  const titleRef = useRef(null)
 
   useEffect(() => {
-    // Animate section title
-    gsap.from(titleRef.current, {
-      scrollTrigger: {
-        trigger: titleRef.current,
-        start: 'top 80%'
-      },
-      opacity: 0,
-      y: 50,
-      duration: 1
-    })
-
-    // Animate cards
-    const cards = document.querySelectorAll('.car-card-wrapper')
-    cards.forEach((card, index) => {
-      gsap.from(card, {
+    const entries = document.querySelectorAll('.car-entry')
+    entries.forEach((entry) => {
+      gsap.from(entry, {
         scrollTrigger: {
-          trigger: card,
-          start: 'top 85%'
+          trigger: entry,
+          start: 'top 85%',
         },
         opacity: 0,
-        y: 80,
-        rotation: 5,
-        duration: 0.8,
-        delay: index * 0.15
+        y: 60,
+        duration: 1,
+        ease: 'power3.out',
       })
     })
   }, [])
@@ -44,75 +30,84 @@ export default function CarsGallery() {
     {
       id: 1,
       name: 'F40',
-      year: 1987,
-      power: '478 hp',
-      speed: '324 km/h',
+      year: '1987',
+      power: '478',
+      speed: '324',
+      accel: '3.8',
       engine: '2.9L Twin-Turbo V8',
-      image: '🏎️',
-      color: '#FF0000',
-      description: 'The legendary original. A masterpiece of engineering.'
+      description: 'The last Ferrari personally approved by Enzo. Raw, uncompromising, legendary. A twin-turbocharged declaration of intent that redefined what a road car could be.',
+      index: '01',
     },
     {
       id: 2,
       name: 'F50',
-      year: 1995,
-      power: '512 hp',
-      speed: '325 km/h',
-      engine: '4.7L V12',
-      image: '🏁',
-      color: '#DC143C',
-      description: 'Anniversary celebration. Pure F1 heritage.'
+      year: '1995',
+      power: '512',
+      speed: '325',
+      accel: '3.7',
+      engine: '4.7L Naturally Aspirated V12',
+      description: 'Born from Formula One. The 4.7-litre V12 is a direct descendant of the 1990 Ferrari 641 grand prix car. No turbochargers, no power steering. Pure.',
+      index: '02',
     },
     {
       id: 3,
       name: 'Enzo',
-      year: 2002,
-      power: '660 hp',
-      speed: '360 km/h',
-      engine: '6.0L V12',
-      image: '🚗',
-      color: '#8B0000',
-      description: 'Named after the founder. Ultimate performance.'
+      year: '2002',
+      power: '660',
+      speed: '360',
+      accel: '3.1',
+      engine: '6.0L Naturally Aspirated V12',
+      description: 'Named for the founder. Active aerodynamics, carbon-ceramic brakes, a naturally aspirated V12 producing 660 cavalli. The definitive hypercar of its era.',
+      index: '03',
     },
     {
       id: 4,
       name: 'LaFerrari',
-      year: 2013,
-      power: '950 hp',
-      speed: '370 km/h',
-      engine: '6.3L Hybrid V12',
-      image: '⚡',
-      color: '#FF6347',
-      description: 'The future is hybrid. Revolutionary technology.'
-    }
+      year: '2013',
+      power: '950',
+      speed: '370',
+      accel: '2.4',
+      engine: '6.3L Hybrid V12 + HY-KERS',
+      description: 'The hybrid revolution. 800 CV from a naturally aspirated V12, 163 CV from electric motors. Combined: 950 cavalli of relentless, instantaneous power.',
+      index: '04',
+    },
   ]
 
   return (
-    <section ref={sectionRef} className="gallery" id="gallery">
-      <div className="container">
-        <motion.h2
-          ref={titleRef}
-          className="gallery-title"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          Iconic Collection
-        </motion.h2>
+    <section ref={sectionRef} className="gallery" id="collection">
+      <div className="gallery-header">
+        <div className="container">
+          <motion.div
+            className="gallery-label"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <span className="label-line" />
+            <span className="label-text">The Collection</span>
+          </motion.div>
 
-        <div className="gallery-grid">
-          {cars.map((car, index) => (
-            <motion.div
-              key={car.id}
-              className="car-card-wrapper"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.8 }}
-            >
-              <CarCard car={car} index={index} />
-            </motion.div>
-          ))}
+          <motion.h2
+            className="gallery-title"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Four Decades of
+            <br />
+            <em>Supremacy</em>
+          </motion.h2>
         </div>
+      </div>
+
+      <div className="gallery-entries">
+        {cars.map((car, i) => (
+          <div key={car.id} className={`car-entry car-entry--${i % 2 === 0 ? 'left' : 'right'}`}>
+            <CarCard car={car} />
+          </div>
+        ))}
       </div>
     </section>
   )
