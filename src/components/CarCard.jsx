@@ -71,7 +71,12 @@ export default function CarCard({ car, index }) {
         }}
         whileHover={{ scale: 1.05 }}
       >
-        <span className="emoji-icon">{car.image}</span>
+        <img 
+          src={car.image} 
+          alt={car.name} 
+          className="car-img-element"
+          loading="lazy"
+        />
       </motion.div>
 
       <div className="card-specs">

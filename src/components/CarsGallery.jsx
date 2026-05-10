@@ -12,7 +12,6 @@ export default function CarsGallery() {
   const titleRef = useRef(null)
 
   useEffect(() => {
-    // Animate section title
     gsap.from(titleRef.current, {
       scrollTrigger: {
         trigger: titleRef.current,
@@ -23,7 +22,6 @@ export default function CarsGallery() {
       duration: 1
     })
 
-    // Animate cards
     const cards = document.querySelectorAll('.car-card-wrapper')
     cards.forEach((card, index) => {
       gsap.from(card, {
@@ -48,9 +46,9 @@ export default function CarsGallery() {
       power: '478 hp',
       speed: '324 km/h',
       engine: '2.9L Twin-Turbo V8',
-      image: '🏎️',
+      image: 'https://images.unsplash.com/photo-1592198084033-a99626785960?auto=format&fit=crop&q=80&w=800',
       color: '#FF0000',
-      description: 'The legendary original. A masterpiece of engineering.'
+      description: 'The legendary original. A masterpiece of engineering and raw power.'
     },
     {
       id: 2,
@@ -59,9 +57,9 @@ export default function CarsGallery() {
       power: '512 hp',
       speed: '325 km/h',
       engine: '4.7L V12',
-      image: '🏁',
+      image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f17?auto=format&fit=crop&q=80&w=800',
       color: '#DC143C',
-      description: 'Anniversary celebration. Pure F1 heritage.'
+      description: 'Anniversary celebration. Pure F1 heritage for the road.'
     },
     {
       id: 3,
@@ -70,9 +68,9 @@ export default function CarsGallery() {
       power: '660 hp',
       speed: '360 km/h',
       engine: '6.0L V12',
-      image: '🚗',
+      image: 'https://images.unsplash.com/photo-1594736797933-d0577578b984?auto=format&fit=crop&q=80&w=800',
       color: '#8B0000',
-      description: 'Named after the founder. Ultimate performance.'
+      description: 'Named after the founder. The ultimate expression of performance.'
     },
     {
       id: 4,
@@ -81,9 +79,20 @@ export default function CarsGallery() {
       power: '950 hp',
       speed: '370 km/h',
       engine: '6.3L Hybrid V12',
-      image: '⚡',
+      image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800',
       color: '#FF6347',
-      description: 'The future is hybrid. Revolutionary technology.'
+      description: 'The future is hybrid. A revolutionary leap in technology.'
+    },
+    {
+      id: 5,
+      name: 'SF90 Stradale',
+      year: 2019,
+      power: '986 hp',
+      speed: '340 km/h',
+      engine: 'Turbo Hybrid V8',
+      image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f17?auto=format&fit=crop&q=80&w=800',
+      color: '#FF0000',
+      description: 'The most powerful road car in Ferrari history.'
     }
   ]
 
