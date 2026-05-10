@@ -164,6 +164,28 @@ export default function CarsGallery() {
     })
   }, [])
 
+  // Preload the first two high-priority images to reduce perceived delay
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const preloads = []
+    ;[0, 1].forEach((i) => {
+      const car = cars[i]
+      if (!car) return
+      const link = document.createElement('link')
+      link.rel = 'preload'
+      link.as = 'image'
+      link.href = car.image
+      // mark as high priority for the browser
+      link.setAttribute('fetchpriority', 'high')
+      document.head.appendChild(link)
+      preloads.push(link)
+    })
+
+    return () => {
+      preloads.forEach((l) => l.remove())
+    }
+  }, [])
+
   return (
     <section ref={sectionRef} className="vertical-gallery" id="gallery">
       <h2 className="gallery-title">Legendary Fleet</h2>
@@ -177,7 +199,12 @@ export default function CarsGallery() {
                   src={car.image} 
                   alt={car.name} 
                   className="car-main-img"
-                  loading="lazy"
+                  // load first two images eagerly with high fetch priority, defer the rest
+                  loading={index < 2 ? 'eager' : 'lazy'}
+                  // hint the browser to prioritise the most important images
+                  fetchpriority={index < 2 ? 'high' : undefined}
+                  // allow the browser to decode images asynchronously
+                  decoding="async"
                   initial={{ scale: 1.2, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 1.2 }}
