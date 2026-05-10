@@ -33,7 +33,6 @@ export default function Footer() {
             <ul className="footer-links">
               <li><a href="#collection">Collection</a></li>
               <li><a href="#heritage">Heritage</a></li>
-              <li><a href="#performance">Performance</a></li>
               <li><a href="#reserve">Reserve</a></li>
             </ul>
           </motion.div>

@@ -14,7 +14,7 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navItems = ['Collection', 'Heritage', 'Performance', 'Reserve']
+  const navItems = ['Collection', 'Heritage', 'Reserve']
 
   return (
     <nav ref={navRef} className={`navbar ${scrolled ? 'nav-scrolled' : ''}`}>
