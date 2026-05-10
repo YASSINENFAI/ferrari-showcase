@@ -12,69 +12,69 @@ export default function CarsGallery() {
   const cars = [
     {
       id: 1,
-      name: 'F40',
-      year: '1987',
-      power: '478 hp',
-      speed: '324 km/h',
-      engine: '2.9L Twin-Turbo V8',
-      image: 'https://images.unsplash.com/photo-1592198084033-a99626785960?auto=format&fit=crop&q=60&w=1200',
-      color: '#dc143c',
-      description: 'The ultimate expression of raw power and legendary status.'
+      name: 'Daytona SP3',
+      year: '2022',
+      power: '829 hp',
+      speed: '340+ km/h',
+      engine: '6.5L V12',
+      image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f17?auto=format&fit=crop&q=80&w=1200',
+      color: '#4a4a4a',
+      description: 'A masterpiece of design and performance, blending heritage with modern art.'
     },
     {
       id: 2,
-      name: 'F50',
-      year: '1995',
-      power: '512 hp',
-      speed: '325 km/h',
-      engine: '4.7L V12',
-      image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f17?auto=format&fit=crop&q=60&w=1200',
-      color: '#b22222',
-      description: 'A tribute to F1 technology, bringing the track to the road.'
+      name: 'SF90 XX',
+      year: '2023',
+      power: '1016 hp',
+      speed: '340 km/h',
+      engine: 'V8 Hybrid',
+      image: 'https://images.unsplash.com/photo-1617814076367-b759c7d62621?auto=format&fit=crop&q=80&w=1200',
+      color: '#001f3f',
+      description: 'The ultimate track-focused hybrid, pushing the limits of aerodynamics.'
     },
     {
       id: 3,
-      name: 'Enzo',
-      year: '2002',
-      power: '660 hp',
-      speed: '360 km/h',
-      engine: '6.0L V12',
-      image: 'https://images.unsplash.com/photo-1594736797933-d0577578b984?auto=format&fit=crop&q=60&w=1200',
-      color: '#8b0000',
-      description: 'The masterpiece named after the founder himself.'
-    },
-    {
-      id: 4,
       name: 'LaFerrari',
       year: '2013',
       power: '950 hp',
       speed: '370 km/h',
       engine: '6.3L Hybrid V12',
-      image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=60&w=1200',
-      color: '#ff4d4d',
-      description: 'The peak of hybrid performance and aerodynamic art.'
+      image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1200',
+      color: '#dc143c',
+      description: 'The pinnacle of Ferrari technology, a symbol of absolute exclusivity.'
+    },
+    {
+      id: 4,
+      name: '499P Hypercar',
+      year: '2023',
+      power: '800+ hp',
+      speed: '350+ km/h',
+      engine: 'V6 Hybrid Turbo',
+      image: 'https://images.unsplash.com/photo-1592198084033-a99626785960?auto=format&fit=crop&q=80&w=1200',
+      color: '#ff0000',
+      description: 'The Le Mans winner. A racing beast designed for the world\'s toughest track.'
     },
     {
       id: 5,
-      name: 'SF90 Stradale',
-      year: '2019',
-      power: '986 hp',
-      speed: '340 km/h',
-      engine: 'Turbo Hybrid V8',
-      image: 'https://images.unsplash.com/photo-1617814076367-b759c7d62621?auto=format&fit=crop&q=60&w=1200',
-      color: '#ff0000',
-      description: 'The most advanced and powerful road car in history.'
+      name: 'Enzo',
+      year: '2002',
+      power: '660 hp',
+      speed: '360 km/h',
+      engine: '6.0L V12',
+      image: 'https://images.unsplash.com/photo-1594736797933-d0577578b984?auto=format&fit=crop&q=80&w=1200',
+      color: '#8b0000',
+      description: 'A legendary tribute to the founder, Enzo Ferrari.'
     },
     {
       id: 6,
-      name: '812 Superfast',
-      year: '2017',
-      power: '789 hp',
-      speed: '340 km/h',
-      engine: '6.5L V12',
-      image: 'https://images.unsplash.com/photo-1594736797933-d0577578b984?auto=format&fit=crop&q=60&w=1200',
-      color: '#a52a2a',
-      description: 'Pure V12 symphony and unmatched elegance.'
+      name: 'F40',
+      year: '1987',
+      power: '478 hp',
+      speed: '324 km/h',
+      engine: '2.9L Twin-Turbo V8',
+      image: 'https://images.unsplash.com/photo-1592198084033-a99626785960?auto=format&fit=crop&q=80&w=1200',
+      color: '#dc143c',
+      description: 'The raw, unfiltered legend. The last car approved by Enzo.'
     },
     {
       id: 7,
@@ -83,20 +83,20 @@ export default function CarsGallery() {
       power: '612 hp',
       speed: '320 km/h',
       engine: '3.9L V8 Turbo',
-      image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f17?auto=format&fit=crop&q=60&w=1200',
+      image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f17?auto=format&fit=crop&q=80&w=1200',
       color: '#dc143c',
-      description: 'La Nuova Dolce Vita - a blend of luxury and speed.'
+      description: 'An elegant blend of luxury and speed, inspired by the city of Rome.'
     },
     {
       id: 8,
-      name: 'Portofino M',
-      year: '2020',
-      power: '612 hp',
-      speed: '320 km/h',
-      engine: '3.9L V8 Turbo',
-      image: 'https://images.unsplash.com/photo-1592198084033-a99626785960?auto=format&fit=crop&q=60&w=1200',
-      color: '#ff0000',
-      description: 'The perfect grand tourer for open-air adventures.'
+      name: '812 Superfast',
+      year: '2017',
+      power: '789 hp',
+      speed: '340 km/h',
+      engine: '6.5L V12',
+      image: 'https://images.unsplash.com/photo-1594736797933-d0577578b984?auto=format&fit=crop&q=80&w=1200',
+      color: '#a52a2a',
+      description: 'The most powerful V12 series production car ever.'
     },
     {
       id: 9,
@@ -105,9 +105,9 @@ export default function CarsGallery() {
       power: '819 hp',
       speed: '330 km/h',
       engine: 'V6 Hybrid',
-      image: 'https://images.unsplash.com/photo-1617814076367-b759c7d62621?auto=format&fit=crop&q=60&w=1200',
+      image: 'https://images.unsplash.com/photo-1617814076367-b759c7d62621?auto=format&fit=crop&q=80&w=1200',
       color: '#e60000',
-      description: 'Next-generation hybrid power and agility.'
+      description: 'A new era of hybrid performance and extreme agility.'
     },
     {
       id: 10,
@@ -116,9 +116,9 @@ export default function CarsGallery() {
       power: '710 hp',
       speed: '340 km/h',
       engine: '3.9L V8 Turbo',
-      image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=60&w=1200',
+      image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1200',
       color: '#ff4500',
-      description: 'A track-focused beast designed for ultimate lap times.'
+      description: 'Designed for the track, perfected for the road.'
     },
     {
       id: 11,
@@ -127,9 +127,9 @@ export default function CarsGallery() {
       power: '390 hp',
       speed: '290 km/h',
       engine: '4.9L Flat-12',
-      image: 'https://images.unsplash.com/photo-1592198084033-a99626785960?auto=format&fit=crop&q=60&w=1200',
+      image: 'https://images.unsplash.com/photo-1592198084033-a99626785960?auto=format&fit=crop&q=80&w=1200',
       color: '#dc143c',
-      description: 'The 80s icon that defined a generation.'
+      description: 'The 80s pop-culture icon with a timeless silhouette.'
     },
     {
       id: 12,
@@ -138,9 +138,9 @@ export default function CarsGallery() {
       power: '150 hp',
       speed: '240 km/h',
       engine: '2.4L V6',
-      image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f17?auto=format&fit=crop&q=60&w=1200',
+      image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f17?auto=format&fit=crop&q=80&w=1200',
       color: '#ff6347',
-      description: 'Graceful, timeless, and purely Italian.'
+      description: 'Grace, elegance, and an unforgettable driving experience.'
     }
   ]
 
@@ -152,12 +152,12 @@ export default function CarsGallery() {
         { 
           opacity: 1, 
           y: 0, 
-          duration: 1, 
+          duration: 1.2, 
           scrollTrigger: {
             trigger: section,
-            start: 'top 70%',
-            end: 'top 30%',
-            scrub: true,
+            start: 'top 80%',
+            end: 'top 20%',
+            scrub: 1,
           }
         }
       )
@@ -180,7 +180,7 @@ export default function CarsGallery() {
                   loading="lazy"
                   initial={{ scale: 1.2, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 1 }}
+                  transition={{ duration: 1.2 }}
                 />
                 <div className="image-overlay"></div>
               </div>
@@ -190,9 +190,9 @@ export default function CarsGallery() {
                 <h3>{car.name}</h3>
                 <p className="car-description">{car.description}</p>
                 <div className="specs-bar">
-                  <div className="spec"><span>Power</span> {car.power}</div>
-                  <div className="spec"><span>Speed</span> {car.speed}</div>
-                  <div className="spec"><span>Engine</span> {car.engine}</div>
+                  <div className="spec"><span>Power</span> <strong>{car.power}</strong></div>
+                  <div className="spec"><span>Speed</span> <strong>{car.speed}</strong></div>
+                  <div className="spec"><span>Engine</span> <strong>{car.engine}</strong></div>
                 </div>
               </div>
             </div>
