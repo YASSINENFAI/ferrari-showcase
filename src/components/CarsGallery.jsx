@@ -17,23 +17,45 @@ export default function CarsGallery() {
       power: '829 hp',
       speed: '340+ km/h',
       engine: '6.5L V12',
-      image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f17?auto=format&fit=crop&q=80&w=1200',
+      image: '/images/ferrari-daytona-sp3-3840x2160-24127.jpg',
       color: '#4a4a4a',
       description: 'A masterpiece of design and performance, blending heritage with modern art.'
     },
     {
       id: 2,
+      name: 'F80',
+      year: '2024',
+      power: '1200 hp',
+      speed: '350+ km/h',
+      engine: 'V6 Hybrid',
+      image: '/images/ferrari-f80-3840x2160-23811.jpg',
+      color: '#1a1a1a',
+      description: 'The future of hypercars. Unprecedented power and cutting-edge aerodynamics.'
+    },
+    {
+      id: 3,
+      name: '499P Hypercar',
+      year: '2023',
+      power: '800+ hp',
+      speed: '350+ km/h',
+      engine: 'V6 Hybrid Turbo',
+      image: '/images/ferrari-499p-3840x2160-25929.jpg',
+      color: '#ff0000',
+      description: 'The Le Mans winner. A racing beast designed for the world\'s toughest track.'
+    },
+    {
+      id: 4,
       name: 'SF90 XX',
       year: '2023',
       power: '1016 hp',
       speed: '340 km/h',
       engine: 'V8 Hybrid',
-      image: 'https://images.unsplash.com/photo-1617814076367-b759c7d62621?auto=format&fit=crop&q=80&w=1200',
+      image: '/images/novitec-ferrari-3840x2160-25771.jpeg',
       color: '#001f3f',
       description: 'The ultimate track-focused hybrid, pushing the limits of aerodynamics.'
     },
     {
-      id: 3,
+      id: 5,
       name: 'LaFerrari',
       year: '2013',
       power: '950 hp',
@@ -44,18 +66,7 @@ export default function CarsGallery() {
       description: 'The pinnacle of Ferrari technology, a symbol of absolute exclusivity.'
     },
     {
-      id: 4,
-      name: '499P Hypercar',
-      year: '2023',
-      power: '800+ hp',
-      speed: '350+ km/h',
-      engine: 'V6 Hybrid Turbo',
-      image: 'https://images.unsplash.com/photo-1592198084033-a99626785960?auto=format&fit=crop&q=80&w=1200',
-      color: '#ff0000',
-      description: 'The Le Mans winner. A racing beast designed for the world\'s toughest track.'
-    },
-    {
-      id: 5,
+      id: 6,
       name: 'Enzo',
       year: '2002',
       power: '660 hp',
@@ -66,7 +77,7 @@ export default function CarsGallery() {
       description: 'A legendary tribute to the founder, Enzo Ferrari.'
     },
     {
-      id: 6,
+      id: 7,
       name: 'F40',
       year: '1987',
       power: '478 hp',
@@ -77,7 +88,7 @@ export default function CarsGallery() {
       description: 'The raw, unfiltered legend. The last car approved by Enzo.'
     },
     {
-      id: 7,
+      id: 8,
       name: 'Roma',
       year: '2020',
       power: '612 hp',
@@ -88,7 +99,7 @@ export default function CarsGallery() {
       description: 'An elegant blend of luxury and speed, inspired by the city of Rome.'
     },
     {
-      id: 8,
+      id: 9,
       name: '812 Superfast',
       year: '2017',
       power: '789 hp',
@@ -99,7 +110,7 @@ export default function CarsGallery() {
       description: 'The most powerful V12 series production car ever.'
     },
     {
-      id: 9,
+      id: 10,
       name: '296 GTB',
       year: '2022',
       power: '819 hp',
@@ -110,7 +121,7 @@ export default function CarsGallery() {
       description: 'A new era of hybrid performance and extreme agility.'
     },
     {
-      id: 10,
+      id: 11,
       name: '488 Pista',
       year: '2018',
       power: '710 hp',
@@ -121,7 +132,7 @@ export default function CarsGallery() {
       description: 'Designed for the track, perfected for the road.'
     },
     {
-      id: 11,
+      id: 12,
       name: 'Testarossa',
       year: '1984',
       power: '390 hp',
@@ -130,17 +141,6 @@ export default function CarsGallery() {
       image: 'https://images.unsplash.com/photo-1592198084033-a99626785960?auto=format&fit=crop&q=80&w=1200',
       color: '#dc143c',
       description: 'The 80s pop-culture icon with a timeless silhouette.'
-    },
-    {
-      id: 12,
-      name: 'Dino 246',
-      year: '1969',
-      power: '150 hp',
-      speed: '240 km/h',
-      engine: '2.4L V6',
-      image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f17?auto=format&fit=crop&q=80&w=1200',
-      color: '#ff6347',
-      description: 'Grace, elegance, and an unforgettable driving experience.'
     }
   ]
 
