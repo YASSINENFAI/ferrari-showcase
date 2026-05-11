@@ -7,50 +7,79 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer-content">
+        <div className="footer-grid">
           <motion.div
-            className="footer-section"
+            className="footer-brand"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
           >
-            <h3>Ferrari</h3>
-            <p>Experience the legendary Italian performance brand.</p>
+            <span className="footer-wordmark">FERRARI</span>
+            <span className="footer-wordmark-bar" />
+            <span className="footer-tagline">Maranello, Modena, Italia</span>
+            <span className="footer-coords">44.5324° N, 10.8638° E</span>
           </motion.div>
 
           <motion.div
-            className="footer-section"
+            className="footer-col"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
+            transition={{ delay: 0.1, duration: 0.7 }}
+            viewport={{ once: true }}
           >
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="#gallery">Gallery</a></li>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#contact">Contact</a></li>
+            <h4 className="footer-col-heading">NAVIGATE</h4>
+            <ul className="footer-col-list">
+              <li><a href="#collection">Collection</a></li>
+              <li><a href="#heritage">Heritage</a></li>
+              <li><a href="#reserve">Reserve</a></li>
             </ul>
           </motion.div>
 
           <motion.div
-            className="footer-section"
+            className="footer-col"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ delay: 0.2, duration: 0.7 }}
+            viewport={{ once: true }}
           >
-            <h4>Follow Us</h4>
-            <div className="social-links">
-              <a href="#" title="Facebook">f</a>
-              <a href="#" title="Twitter">𝕏</a>
-              <a href="#" title="Instagram">📷</a>
-              <a href="#" title="YouTube">▶️</a>
-            </div>
+            <h4 className="footer-col-heading">CONNECT</h4>
+            <ul className="footer-col-list">
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">YouTube</a></li>
+              <li><a href="#">LinkedIn</a></li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            className="footer-col"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="footer-col-heading">SYSTEM</h4>
+            <ul className="footer-col-list">
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
           </motion.div>
         </div>
 
+        <div className="footer-divider" />
+
         <div className="footer-bottom">
-          <p>&copy; {currentYear} Ferrari Showcase. All rights reserved.</p>
-          <p>Built with <span>❤️</span> using React, Framer Motion & GSAP</p>
+          <div className="footer-bottom-left">
+            <span className="footer-copyright">© {currentYear} FERRARI S.P.A.</span>
+            <div className="footer-status">
+              <span className="footer-status-dot" />
+              <span className="footer-status-text">ALL SYSTEMS ONLINE</span>
+            </div>
+          </div>
+          <span className="footer-legal">
+            Ferrari and the Prancing Horse are registered trademarks.
+          </span>
         </div>
       </div>
     </footer>
