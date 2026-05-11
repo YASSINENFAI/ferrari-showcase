@@ -1,9 +1,48 @@
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './CTA.css'
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function CTA() {
+  const bgRef = useRef(null)
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    if (bgRef.current && sectionRef.current) {
+      gsap.fromTo(bgRef.current,
+        { yPercent: -10 },
+        {
+          yPercent: 10,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          },
+        }
+      )
+    }
+  }, [])
+
   return (
-    <section className="cta" id="reserve">
+    <section className="cta" id="reserve" ref={sectionRef}>
+      {/* Full-bleed cinematic background */}
+      <div className="cta-bg-wrap">
+        <img
+          ref={bgRef}
+          src="https://images.unsplash.com/photo-1567818735868-e71b99932e29?auto=format&fit=crop&w=1920&q=80"
+          alt="Ferrari Maranello factory at dusk"
+          className="cta-bg-image"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="cta-bg-overlay" />
+      </div>
+
       <div className="cta-diagonal" />
 
       <div className="container">
@@ -60,6 +99,18 @@ export default function CTA() {
             transition={{ delay: 0.3, duration: 0.8 }}
             viewport={{ once: true }}
           >
+            {/* Aside image */}
+            <div className="cta-aside-image">
+              <img
+                src="/images/ferrari-daytona-sp3-3840x2160-24127.jpg"
+                alt="Ferrari Daytona SP3 interior detail"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="cta-aside-image-overlay" />
+              <span className="cta-aside-image-tag">ATELIER_VIEW</span>
+            </div>
+
             <div className="cta-aside-block">
               <div className="cta-aside-header">
                 <span className="cta-aside-dot" />

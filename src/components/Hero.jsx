@@ -1,20 +1,52 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './Hero.css'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Hero() {
   const redLineRef = useRef(null)
+  const heroRef = useRef(null)
+  const imgRef = useRef(null)
 
   useEffect(() => {
     gsap.fromTo(redLineRef.current,
       { scaleX: 0 },
       { scaleX: 1, duration: 1.2, delay: 1.8, ease: 'power4.inOut' }
     )
+
+    // Parallax on hero background image
+    if (imgRef.current) {
+      gsap.to(imgRef.current, {
+        yPercent: 20,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      })
+    }
   }, [])
 
   return (
-    <section className="hero" id="home">
+    <section className="hero" id="home" ref={heroRef}>
+      {/* Full-bleed background image with parallax */}
+      <div className="hero-bg-image-wrap">
+        <img
+          ref={imgRef}
+          src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1920&q=80"
+          alt="Ferrari silhouette in dramatic lighting"
+          className="hero-bg-image"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div className="hero-bg-image-overlay" />
+      </div>
+
       <div className="hero-slash" />
       <div className="hero-grid-overlay" />
 

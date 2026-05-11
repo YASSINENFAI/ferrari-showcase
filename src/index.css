@@ -177,6 +177,14 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Global image rendering */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  image-rendering: auto;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   :root {
