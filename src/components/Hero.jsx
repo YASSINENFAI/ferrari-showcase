@@ -4,104 +4,122 @@ import gsap from 'gsap'
 import './Hero.css'
 
 export default function Hero() {
-  const heroRef = useRef(null)
-  const titleRef = useRef(null)
-  const subtitleRef = useRef(null)
-  const particlesRef = useRef(null)
+  const redLineRef = useRef(null)
 
   useEffect(() => {
-    // Animated background particles
-    const createParticles = () => {
-      for (let i = 0; i < 50; i++) {
-        const particle = document.createElement('div')
-        particle.className = 'particle'
-        particle.style.left = Math.random() * 100 + '%'
-        particle.style.top = Math.random() * 100 + '%'
-        particle.style.width = Math.random() * 3 + 'px'
-        particle.style.height = particle.style.width
-        particle.style.animation = `float ${5 + Math.random() * 5}s infinite`
-        particle.style.animationDelay = Math.random() * 2 + 's'
-        particlesRef.current?.appendChild(particle)
-      }
-    }
-
-    createParticles()
-
-    // Title animation
-    gsap.from(titleRef.current, {
-      opacity: 0,
-      y: 50,
-      duration: 1.2,
-      ease: 'power3.out'
-    })
-
-    gsap.from(subtitleRef.current, {
-      opacity: 0,
-      y: 30,
-      duration: 1.2,
-      delay: 0.3,
-      ease: 'power3.out'
-    })
-
-    // Floating animation
-    gsap.to(titleRef.current, {
-      y: -20,
-      duration: 4,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut'
-    })
-
+    gsap.fromTo(redLineRef.current,
+      { scaleX: 0 },
+      { scaleX: 1, duration: 1.2, delay: 1.8, ease: 'power4.inOut' }
+    )
   }, [])
 
   return (
-    <section ref={heroRef} className="hero" id="home">
-      <div ref={particlesRef} className="particles"></div>
+    <section className="hero" id="home">
+      <div className="hero-slash" />
+      <div className="hero-grid-overlay" />
 
-      <div className="hero-content">
-        <motion.h1
-          ref={titleRef}
-          className="hero-title"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: 'easeOut' }}
-        >
-          FERRARI
-        </motion.h1>
+      <div className="hero-layout">
+        <div className="hero-left">
+          <motion.div
+            className="hero-tag"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            <span className="hero-tag-dot" />
+            <span className="hero-tag-text">EST. 1947 — MARANELLO</span>
+          </motion.div>
 
-        <motion.p
-          ref={subtitleRef}
-          className="hero-subtitle"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 1 }}
-        >
-          Experience the Art of Performance
-        </motion.p>
+          <motion.h1
+            className="hero-title"
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            FERRARI
+          </motion.h1>
 
-        <motion.button
-          className="hero-button"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          <div ref={redLineRef} className="hero-red-slash" />
+
+          <motion.p
+            className="hero-subtitle"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.7 }}
+          >
+            <em>Where physics surrenders to obsession.</em>
+          </motion.p>
+
+          <motion.a
+            href="#collection"
+            className="hero-cta"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2, duration: 0.8 }}
+          >
+            <span className="hero-cta-indicator" />
+            <span className="hero-cta-text">ACCESS COLLECTION</span>
+            <span className="hero-cta-arrow">→</span>
+          </motion.a>
+        </div>
+
+        <motion.div
+          className="hero-right"
+          initial={{ opacity: 0, x: 80 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          Explore Collection
-        </motion.button>
+          <div className="hero-telemetry">
+            <div className="telemetry-header">
+              <span className="telemetry-live" />
+              <span className="telemetry-label">LIVE TELEMETRY</span>
+            </div>
+
+            <div className="telemetry-data">
+              <div className="telemetry-row">
+                <span className="telemetry-key">V_MAX</span>
+                <span className="telemetry-value">370</span>
+                <span className="telemetry-unit">KM/H</span>
+              </div>
+              <div className="telemetry-row">
+                <span className="telemetry-key">PWR_OUT</span>
+                <span className="telemetry-value">950</span>
+                <span className="telemetry-unit">CV</span>
+              </div>
+              <div className="telemetry-row">
+                <span className="telemetry-key">0—100</span>
+                <span className="telemetry-value">2.4</span>
+                <span className="telemetry-unit">SEC</span>
+              </div>
+              <div className="telemetry-row">
+                <span className="telemetry-key">TORQ</span>
+                <span className="telemetry-value">900</span>
+                <span className="telemetry-unit">NM</span>
+              </div>
+            </div>
+
+            <div className="telemetry-footer">
+              <span className="telemetry-model">SF90_STRADALE</span>
+              <span className="telemetry-status">● ACTIVE</span>
+            </div>
+          </div>
+
+          <div className="hero-bg-number">370</div>
+        </motion.div>
       </div>
 
       <motion.div
-        className="hero-glow"
-        animate={{
-          opacity: [0.3, 0.6, 0.3],
-          scale: [1, 1.1, 1]
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity
-        }}
-      ></motion.div>
+        className="hero-scroll"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.4, duration: 1 }}
+      >
+        <span className="hero-scroll-line" />
+        <span className="hero-scroll-text">SCROLL</span>
+      </motion.div>
+
+      <div className="hero-coords hero-coords--tl">44.5324° N</div>
+      <div className="hero-coords hero-coords--br">10.8638° E</div>
     </section>
   )
 }

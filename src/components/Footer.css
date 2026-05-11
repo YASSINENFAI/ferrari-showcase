@@ -1,96 +1,193 @@
 .footer {
-  background: rgba(10, 10, 10, 0.95);
-  border-top: 1px solid var(--border-color);
-  padding: 60px 0 20px;
+  background: var(--asphalt);
+  border-top: 1px solid var(--border);
+  padding: 80px 0 32px;
+  position: relative;
 }
 
-.footer-content {
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 2px;
+  background: var(--rosso);
+}
+
+.footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  margin-bottom: 40px;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
 }
 
-.footer-section h3 {
-  font-size: 24px;
-  color: var(--primary-red);
-  margin-bottom: 15px;
-  font-weight: 900;
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 
-.footer-section h4 {
-  font-size: 16px;
-  color: var(--text-light);
-  margin-bottom: 15px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.footer-wordmark {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 8px;
+  color: var(--cream);
 }
 
-.footer-section p {
-  color: var(--text-muted);
-  line-height: 1.6;
-  font-size: 14px;
+.footer-wordmark-bar {
+  width: 32px;
+  height: 2px;
+  background: var(--rosso);
 }
 
-.footer-section ul {
+.footer-tagline {
+  font-family: var(--font-accent);
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--cream-dim);
+  opacity: 0.5;
+}
+
+.footer-coords {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: var(--cream-dim);
+  opacity: 0.3;
+  margin-top: var(--space-sm);
+}
+
+.footer-col-heading {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--cream-dim);
+  opacity: 0.5;
+  margin-bottom: var(--space-lg);
+}
+
+.footer-col-list {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.footer-section li {
-  margin-bottom: 10px;
-}
-
-.footer-section a {
-  color: var(--text-muted);
+.footer-col-list a {
   text-decoration: none;
-  transition: color 0.3s ease;
-  font-size: 14px;
-}
-
-.footer-section a:hover {
-  color: var(--primary-red);
-}
-
-.social-links {
-  display: flex;
-  gap: 15px;
-}
-
-.social-links a {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(220, 20, 60, 0.1);
-  border: 1px solid var(--border-color);
-  border-radius: 50%;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: var(--cream-dim);
+  opacity: 0.6;
   transition: all 0.3s ease;
-  text-decoration: none;
-  color: var(--primary-red);
-  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.social-links a:hover {
-  background: var(--primary-red);
-  color: white;
-  transform: translateY(-3px);
+.footer-col-list a:hover {
+  color: var(--cream);
+  opacity: 1;
+}
+
+.footer-col-list a::before {
+  content: '';
+  width: 0;
+  height: 1px;
+  background: var(--rosso);
+  transition: width 0.3s ease;
+}
+
+.footer-col-list a:hover::before {
+  width: 12px;
+}
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin-bottom: var(--space-lg);
 }
 
 .footer-bottom {
-  text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid var(--border-color);
-  color: var(--text-muted);
-  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.footer-bottom p {
-  margin: 10px 0;
+.footer-bottom-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.footer-bottom span {
-  display: inline-block;
-  margin: 0 5px;
+.footer-copyright {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: var(--cream-dim);
+  opacity: 0.4;
+}
+
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-status-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: scanPulse 2s ease-in-out infinite;
+}
+
+.footer-status-text {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--green);
+  opacity: 0.7;
+}
+
+.footer-legal {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 300;
+  color: var(--cream-dim);
+  opacity: 0.3;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 0 24px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
 }
