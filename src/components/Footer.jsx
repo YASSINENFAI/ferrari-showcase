@@ -7,59 +7,86 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer-main">
+        {/* Main grid */}
+        <div className="footer-grid">
+          {/* Brand */}
           <motion.div
             className="footer-brand"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <h3 className="footer-logo">Ferrari</h3>
-            <span className="footer-logo-line" />
-            <p className="footer-tagline">
-              Maranello, Modena, Italia
-            </p>
+            <span className="footer-wordmark">FERRARI</span>
+            <span className="footer-wordmark-bar" />
+            <span className="footer-tagline">Maranello, Modena, Italia</span>
+            <span className="footer-coords">44.5324° N, 10.8638° E</span>
           </motion.div>
 
+          {/* Navigate */}
           <motion.div
-            className="footer-links-group"
+            className="footer-col"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.8 }}
+            transition={{ delay: 0.1, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <h4 className="footer-heading">Explore</h4>
-            <ul className="footer-links">
+            <h4 className="footer-col-heading">NAVIGATE</h4>
+            <ul className="footer-col-list">
               <li><a href="#collection">Collection</a></li>
               <li><a href="#heritage">Heritage</a></li>
               <li><a href="#reserve">Reserve</a></li>
             </ul>
           </motion.div>
 
+          {/* Connect */}
           <motion.div
-            className="footer-links-group"
+            className="footer-col"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
+            transition={{ delay: 0.2, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <h4 className="footer-heading">Connect</h4>
-            <ul className="footer-links">
+            <h4 className="footer-col-heading">CONNECT</h4>
+            <ul className="footer-col-list">
               <li><a href="#">Instagram</a></li>
               <li><a href="#">YouTube</a></li>
               <li><a href="#">LinkedIn</a></li>
             </ul>
           </motion.div>
+
+          {/* System */}
+          <motion.div
+            className="footer-col"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="footer-col-heading">SYSTEM</h4>
+            <ul className="footer-col-list">
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
+          </motion.div>
         </div>
 
+        {/* Divider */}
+        <div className="footer-divider" />
+
+        {/* Bottom bar */}
         <div className="footer-bottom">
-          <p className="footer-copyright">
-            &copy; {currentYear} Ferrari S.p.A.
-          </p>
-          <p className="footer-legal">
-            All rights reserved. Ferrari and the Prancing Horse are registered trademarks.
-          </p>
+          <div className="footer-bottom-left">
+            <span className="footer-copyright">© {currentYear} FERRARI S.P.A.</span>
+            <div className="footer-status">
+              <span className="footer-status-dot" />
+              <span className="footer-status-text">ALL SYSTEMS ONLINE</span>
+            </div>
+          </div>
+          <span className="footer-legal">
+            Ferrari and the Prancing Horse are registered trademarks.
+          </span>
         </div>
       </div>
     </footer>
