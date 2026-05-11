@@ -1,57 +1,117 @@
+import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './CarCard.css'
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function CarCard({ car }) {
+  const imageRef = useRef(null)
+  const cardRef = useRef(null)
+
+  useEffect(() => {
+    // Parallax on image within card
+    if (imageRef.current && cardRef.current) {
+      gsap.fromTo(imageRef.current,
+        { yPercent: -8 },
+        {
+          yPercent: 8,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: cardRef.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          },
+        }
+      )
+    }
+  }, [])
+
   return (
-    <div className="car-card">
-      <div className="car-card-index">{car.index}</div>
+    <div className="car-card" ref={cardRef}>
+      <div className="car-card-bg-index">{car.index}</div>
 
-      <div className="car-card-layout">
-        <div className="car-card-info">
-          <div className="car-card-meta">
-            <span className="car-card-year">{car.year}</span>
-            <span className="car-card-dot" />
-            <span className="car-card-engine">{car.engine}</span>
-          </div>
-
-          <h3 className="car-card-name">{car.name}</h3>
-
-          <p className="car-card-description">{car.description}</p>
-
-          <motion.a
-            href="#"
-            className="car-card-link"
-            whileHover={{ x: 8 }}
-            transition={{ duration: 0.3 }}
-          >
-            <span>Full Specifications</span>
-            <span className="car-card-link-arrow">&rarr;</span>
-          </motion.a>
+      <div className="car-card-topbar">
+        <div className="car-card-topbar-left">
+          <span className="car-card-index-label">NO.{car.index}</span>
+          <span className="car-card-sep">—</span>
+          <span className="car-card-year">{car.year}</span>
         </div>
-
-        <div className="car-card-specs">
-          <div className="spec-item">
-            <span className="spec-number">{car.power}</span>
-            <span className="spec-unit">cv</span>
-            <span className="spec-label">Power</span>
-          </div>
-          <div className="spec-divider" />
-          <div className="spec-item">
-            <span className="spec-number">{car.speed}</span>
-            <span className="spec-unit">km/h</span>
-            <span className="spec-label">Top Speed</span>
-          </div>
-          <div className="spec-divider" />
-          <div className="spec-item">
-            <span className="spec-number">{car.accel}</span>
-            <span className="spec-unit">sec</span>
-            <span className="spec-label">0-100</span>
-          </div>
+        <div className="car-card-topbar-right">
+          <span className={`car-card-status ${car.status === 'ACTIVE' ? 'car-card-status--active' : ''}`}>
+            ● {car.status}
+          </span>
         </div>
       </div>
 
-      <div className="car-card-border-top" />
-      <div className="car-card-border-bottom" />
+      <div className="car-card-body">
+        {/* Image block */}
+        <div className="car-card-image-wrap">
+          <div className="car-card-image-inner">
+            <img
+              ref={imageRef}
+              src={car.image}
+              alt={`Ferrari ${car.name}`}
+              className="car-card-image"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div className="car-card-image-overlay" />
+          <div className="car-card-image-border" />
+          <span className="car-card-image-label">FRAME_{car.index}</span>
+        </div>
+
+        {/* Info + specs */}
+        <div className="car-card-content">
+          <div className="car-card-info">
+            <h3 className="car-card-name">{car.name}</h3>
+            <span className="car-card-engine">{car.engine}</span>
+            <p className="car-card-description">{car.description}</p>
+
+            <motion.a
+              href="#"
+              className="car-card-link"
+              whileHover={{ x: 8 }}
+              transition={{ duration: 0.3 }}
+            >
+              <span className="car-card-link-dot" />
+              <span>FULL SPEC SHEET</span>
+              <span className="car-card-link-arrow">→</span>
+            </motion.a>
+          </div>
+
+          <div className="car-card-specs">
+            <div className="car-card-specs-header">
+              <span className="car-card-specs-title">PERFORMANCE DATA</span>
+            </div>
+
+            <div className="car-card-spec-row">
+              <span className="car-card-spec-key">PWR</span>
+              <span className="car-card-spec-value">{car.power}</span>
+              <span className="car-card-spec-unit">CV</span>
+            </div>
+
+            <div className="car-card-spec-divider" />
+
+            <div className="car-card-spec-row">
+              <span className="car-card-spec-key">V_MAX</span>
+              <span className="car-card-spec-value">{car.speed}</span>
+              <span className="car-card-spec-unit">KM/H</span>
+            </div>
+
+            <div className="car-card-spec-divider" />
+
+            <div className="car-card-spec-row">
+              <span className="car-card-spec-key">0—100</span>
+              <span className="car-card-spec-value">{car.accel}</span>
+              <span className="car-card-spec-unit">SEC</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
